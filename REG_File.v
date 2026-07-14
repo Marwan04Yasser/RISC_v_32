@@ -6,9 +6,11 @@ module reg_file(
 );
     
     reg [31:0] register [31:0];
-
-    assign RD1 = register[A1];
-    assign RD2 = register[A2];
+ 
+    always @(*) begin
+        RD1 = register[A1];
+        RD2 = register[A2]; 
+    end
 
     always @(posedge CLK ) begin
         if (WE3) begin
